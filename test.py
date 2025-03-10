@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import joblib  # 모델 저장
 
 # 📂 데이터 파일 경로
-data_path = r"C:\Users\miju\Desktop\me\raw.data\sev_final_dataset"
+data_path = r"C:\Users\miju\Desktop\me\raw.data\sevteen_final_dataset"
 train_file = os.path.join(data_path, "train_data.csv")
 test_file = os.path.join(data_path, "test_data.csv")
 
@@ -22,7 +22,7 @@ X_test = test_df.iloc[:, :-1].values  # 마지막 열(Label) 제외
 y_test = test_df.iloc[:, -1].values   # 마지막 열(Label)만 선택
 
 # ✅ Random Forest 모델 생성 및 학습
-rf_model = RandomForestClassifier(n_estimators=300, random_state=42)
+rf_model = RandomForestClassifier(n_estimators=300)
 rf_model.fit(X_train, y_train)
 
 # ✅ 예측 수행
@@ -39,6 +39,6 @@ print(f"\n📊 **분류 보고서(Classification Report):**\n{report}")
 print(f"\n📌 **혼동 행렬(Confusion Matrix):**\n{conf_matrix}")
 
 # ✅ 모델 저장
-model_path = os.path.join(data_path, "sixteen_random_forest_model.pkl")
+model_path = os.path.join(data_path, "sevteen_random_forest_model.pkl")
 joblib.dump(rf_model, model_path)
 print(f"\n💾 모델이 저장되었습니다: {model_path}")
